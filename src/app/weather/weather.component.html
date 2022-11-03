@@ -1,0 +1,68 @@
+<div class="search">
+  <form [formGroup]="searchForm" (ngSubmit)="searchWeather()">
+    <input type="text" formControlName="city" placeholder="Search City" name="city"/>
+  </form>
+</div>
+
+<div class="container">
+    <div class="upper-data">
+      <img src="../assets/cold.jpeg" >
+      <img src="../assets/hot.jpeg" *ngIf="dataweather.temperature > 290">
+  
+      <div class="weather-data">
+        <div class="location">{{dataweather.name}}</div>
+        <div class="temperature">{{dataweather.temperature| number:'1.0-0'}}°K</div>
+      </div>
+    </div>
+    <div class="lower-data">
+      <div class="more-info-label">
+        More Information
+      </div>
+      <div class="more-info-container">
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets//min.jpg" alt="">
+            <span>min</span>
+          </div>
+          <div class="info-block-value">
+            {{dataweather.min_temp}}°K
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/wind.jpg" alt="">
+            <span>wind</span>
+          </div>
+          <div class="info-block-value">
+            {{dataweather.wind}}km/hr
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets//max.jpg" alt="">
+            <span>max</span>
+          </div>
+          <div class="info-block-value">
+            {{dataweather.max_temp}}°K
+
+          </div>
+        </div>
+  
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/humiditi.jpg" alt="">
+            <span>humiditi</span>
+          </div>
+          <div class="info-block-value">
+           {{dataweather.humidity}}
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <div class="save-button" (ngSumbit)="saveWeatherdata()">
+    <button >SAVE</button>
+  </div>
